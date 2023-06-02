@@ -9,8 +9,8 @@ Note: If you're using an older version of compose you may need to replace `docke
 To generate your own Backstage application, fork this repo and run:
 
 ```sh
-mkdir -p /tmp/backstage/data # this is needed here?
-# ENVFILE=env.example make envfile # do we need to run this here? or okay to run later?
+mkdir -p /tmp/backstage/data
+ENVFILE=env.example make envfile
 make bootstrap
 ```
 ## Step 2. Running your Backstage App locally
