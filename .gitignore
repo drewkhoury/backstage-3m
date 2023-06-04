@@ -1,7 +1,10 @@
+app/
+
 .external_modules/
 .tflint.d/
 *.sarif
 tfplan.*
+
 # macOS
 .DS_Store
 

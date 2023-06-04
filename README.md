@@ -13,6 +13,11 @@ mkdir -p /tmp/backstage/data
 ENVFILE=env.example make envfile
 make bootstrap
 ```
+
+Note: This will run `npx @backstage/create-app --path app/` which will create around 1 GB of files in `node_modules/`. With a fast network and modern laptop this should only take around 5 minutes.
+
+You can run `while :; do clear; du -skh app/node_modules; sleep 10; done` to estimate the progress.
+
 ## Step 2. Running your Backstage App locally
 
 Once you've bootstrapped your app, you can run it locally by executing the following:

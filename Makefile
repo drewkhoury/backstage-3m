@@ -1,12 +1,12 @@
 .DEFAULT_GOAL := help
-COMPOSE_RUN_NODE := docker compose run --rm node
-COMPOSE_RUN_YQ := docker compose run --rm yq
-COMPOSE_RUN_TF := docker compose run --rm terraform
-COMPOSE_RUN_TFLINT := docker compose run --rm tflint
-COMPOSE_RUN_CHECKOV := docker compose run --rm checkov
-COMPOSE_BUILD_BACKSTAGE := docker compose build backstage
-COMPOSE_UP_NODE := docker compose --profile node up
-COMPOSE_UP_BACKSTAGE := docker compose --profile docker up
+COMPOSE_RUN_NODE := docker-compose run --rm node
+COMPOSE_RUN_YQ := docker-compose run --rm yq
+COMPOSE_RUN_TF := docker-compose run --rm terraform
+COMPOSE_RUN_TFLINT := docker-compose run --rm tflint
+COMPOSE_RUN_CHECKOV := docker-compose run --rm checkov
+COMPOSE_BUILD_BACKSTAGE := docker-compose build backstage
+COMPOSE_UP_NODE := docker-compose --profile node up
+COMPOSE_UP_BACKSTAGE := docker-compose --profile docker up
 ENVFILE ?= env.template
 
 .DEFAULT_GOAL = help
@@ -31,7 +31,7 @@ bootstrap: ## Ran first to initially bootstrap
 .PHONY: bootstrap
 
 _bootstrap:
-	npx @backstage/create-app@latest --path .
+	npx --loglevel verbose @backstage/create-app --path app/
 	git checkout -- .gitignore .prettierignore README.md
 .PHONY: _bootstrap
 
